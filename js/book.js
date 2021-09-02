@@ -12,6 +12,7 @@ const searchBook = () => {
         // Display Spinner
         document.getElementById('spinner').style.display = 'block';
         // Hide error
+        displayError();
         document.getElementById('error-message').style.display = 'none';
         const url = `https://openlibrary.org/search.json?q=${searchText}`;
         fetch(url)
@@ -75,7 +76,14 @@ const displaySearchResult = docs => {
 //spinner
 document.getElementById('error-message').style.display = 'none';
 document.getElementById('spinner').style.display = 'none';
+// const displayError1 = () => {
+//     document.getElementById('error-message').style.display = 'block';
+//     document.getElementById('spinner').style.display = 'none';
+// }
 const displayError = () => {
+    const searchResult = document.getElementById('search-result');
+    searchResult.textContent = '';
+    const search = document.getElementById('total');
+    search.textContent = '';
     document.getElementById('error-message').style.display = 'block';
-    document.getElementById('spinner').style.display = 'none';
 }
