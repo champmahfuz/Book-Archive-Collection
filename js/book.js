@@ -13,14 +13,14 @@ const searchBook = () => {
         document.getElementById('spinner').style.display = 'block';
         // Hide error
         document.getElementById('error-message').style.display = 'none';
-        const url = `http://openlibrary.org/search.json?q=${searchText}`;
+        const url = `https://openlibrary.org/search.json?q=${searchText}`;
         fetch(url)
             .then(res => res.json())
             .then(data => displaySearchResult(data.docs.slice(0, 15)));
     }
 
 
-    const search = `http://openlibrary.org/search.json?q=${searchText}`;
+    const search = `https://openlibrary.org/search.json?q=${searchText}`;
     fetch(search)
         .then(res => res.json())
         .then(data => totalSearch(data.numFound));
